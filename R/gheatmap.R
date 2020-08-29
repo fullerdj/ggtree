@@ -79,6 +79,9 @@ gheatmap <- function(p, data, offset=0, width=1, low="green", high="red", color=
     ## dd <- dd[lab, , drop=FALSE]
     ## https://github.com/GuangchuangYu/ggtree/issues/182
     dd <- dd[match(lab, rownames(dd)), , drop = FALSE]
+	 if (all(is.na(dd)) {
+        stop(paste(match.call(), ": no species from tree found in data (do your rows have labels?)"))
+    }
 
 
     dd$y <- sort(df$y)
